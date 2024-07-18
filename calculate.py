@@ -16,6 +16,7 @@ Include a header with Mythic Systems branding in each Python file:
 # (c) 2024 Mythic Systems
 # All rights reserved.
 '''
+from main import *
 from gui import *
 from read import *
 from report import *
@@ -26,7 +27,7 @@ matplotlib.use('Agg')  # Use a non-interactive backend
 import ifcopenshell
 import re
 import seaborn as sns
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 import numpy as np
 from scipy.spatial import Delaunay, ConvexHull
 from tkinter import Tk, messagebox, Label, Checkbutton, BooleanVar, Entry

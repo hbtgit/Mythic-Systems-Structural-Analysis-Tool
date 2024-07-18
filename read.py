@@ -16,7 +16,7 @@ Include a header with Mythic Systems branding in each Python file:
 # (c) 2024 Mythic Systems
 # All rights reserved.
 '''
-
+from main import *
 import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend
 
