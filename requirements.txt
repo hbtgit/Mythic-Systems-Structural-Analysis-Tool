@@ -1,0 +1,10 @@
+ifcopenshell
+re
+seaborn
+matplotlib
+numpy
+scipy
+os
+fpdf
+tkinter
+tkinterdnd2
