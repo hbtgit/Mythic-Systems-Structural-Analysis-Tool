@@ -158,6 +158,8 @@ def extract_forces_moments(ifc_path):
 
 def parse_ifc_file(ifc_path):
     """Parses the IFC file to extract 3D coordinates using ifcopenshell."""
+    
+    remove_zero_point_var = BooleanVar(value=False)
     coordinates = []
     ifc_file = ifcopenshell.open(ifc_path)
     for point in ifc_file.by_type('IfcCartesianPoint'):

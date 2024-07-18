@@ -23,6 +23,7 @@ matplotlib.use('Agg')  # Use a non-interactive backend
 from gui import *
 from calculate import *
 from read import *
+#from read import extract_ifc_data
 from widget import *
 import ifcopenshell
 import re
