@@ -18,6 +18,11 @@ Include a header with Mythic Systems branding in each Python file:
 import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend
 
+from gui import *
+from calculate import *
+from read import *
+from report import *
+from widget import *
 import ifcopenshell
 import re
 import seaborn as sns

@@ -1,3 +1,4 @@
+'''
 **LICENSE**
 
 Include a proper license file according to Mythic Systems' guidelines.
@@ -14,7 +15,11 @@ Include a header with Mythic Systems branding in each Python file:
 # Mythic Systems Structural Analysis Tool
 # (c) 2024 Mythic Systems
 # All rights reserved.
-
+'''
+from gui import *
+from read import *
+from report import *
+from widget import *
 import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend
 
