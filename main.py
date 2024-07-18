@@ -31,4 +31,45 @@ from fpdf import FPDF
 import tkinter as tk
 from tkinter import simpledialog
 
-# Rest of the code ...
+root = TkinterDnD.Tk()
+    root.title("IFC to PDF Converter")
+    root.geometry("400x500")
+    global ice_load_entry, snow_load_entry, remove_zero_point_var, Imperial_var, roof_uplift_entry, roof_downpressure_entry, wind_force_entry, wall_height_entry
+    label = Label(root, text="Drag and drop an IFC file here", width=40, height=10)
+    label.pack(pady=10)
+
+    # Add a label and entry field for snow load per unit area
+    Label(root, text="Snow Load (lbs/sq. ft.):").pack(anchor='w')
+    snow_load_entry = Entry(root)
+    snow_load_entry.pack(anchor='w')
+    Label(root, text="Ice Load (lbs/sq. ft.):").pack(anchor='w')
+    ice_load_entry = Entry(root)
+    ice_load_entry.pack(anchor='w')
+    
+    remove_zero_point_var = BooleanVar(value=False)
+    checkbox = Checkbutton(root, text="Remove (0,0,0) Point", variable=remove_zero_point_var)
+    checkbox.pack(anchor='w')
+    
+    Label(root, text="Roof Uplift Pressure (psf)").pack(anchor='w')
+    roof_uplift_entry = Entry(root)
+    roof_uplift_entry.pack(anchor='w')
+
+    Label(root, text="Roof Downpressure (psf)").pack(anchor='w')
+    roof_downpressure_entry = Entry(root)
+    roof_downpressure_entry.pack(anchor='w')
+
+    Label(root, text="Wind Force (lbs)").pack(anchor='w')
+    wind_force_entry = Entry(root)
+    wind_force_entry.pack(anchor='w')
+
+    Label(root, text="Wall Height (feet)").pack(anchor='w')
+    wall_height_entry = Entry(root)
+    wall_height_entry.pack(anchor='w')
+    
+    root.drop_target_register(DND_FILES)
+    root.dnd_bind('<<Drop>>', on_drop)
+
+    root.mainloop()
+
+if __name__ == '__main__':
+    main()
