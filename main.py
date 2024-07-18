@@ -1,4 +1,4 @@
-**LICENSE**
+'''**LICENSE**
 
 Include a proper license file according to Mythic Systems' guidelines.
 
@@ -14,7 +14,7 @@ Include a header with Mythic Systems branding in each Python file:
 # Mythic Systems Structural Analysis Tool
 # (c) 2024 Mythic Systems
 # All rights reserved.
-
+'''
 import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend
 
@@ -31,7 +31,8 @@ from fpdf import FPDF
 import tkinter as tk
 from tkinter import simpledialog
 
-root = TkinterDnD.Tk()
+def main():
+    root = TkinterDnD.Tk()
     root.title("IFC to PDF Converter")
     root.geometry("400x500")
     global ice_load_entry, snow_load_entry, remove_zero_point_var, Imperial_var, roof_uplift_entry, roof_downpressure_entry, wind_force_entry, wall_height_entry
@@ -73,3 +74,4 @@ root = TkinterDnD.Tk()
 
 if __name__ == '__main__':
     main()
+
