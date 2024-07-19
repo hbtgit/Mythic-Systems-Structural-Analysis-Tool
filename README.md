@@ -11,3 +11,5 @@ Welcome to the Mythic Systems Structural Analysis Tool. This software provides c
 To install the necessary dependencies, run:
 ```bash
 pip install -r requirements.txt
+
+drag and drop the ifc file from ifc folder to the gui and enter values.
