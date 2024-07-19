@@ -20,7 +20,7 @@ matplotlib.use('Agg')  # Use a non-interactive backend
 
 from gui import *
 from calculate import *
-from read import *
+from read_methods import *
 from report import *
 from widget import *
 import ifcopenshell

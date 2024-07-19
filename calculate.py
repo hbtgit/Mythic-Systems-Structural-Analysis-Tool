@@ -16,9 +16,9 @@ Include a header with Mythic Systems branding in each Python file:
 # (c) 2024 Mythic Systems
 # All rights reserved.
 '''
-from main import *
-from gui import *
-from read import *
+#from main import *
+#from gui import *
+from read_methods import *
 from report import *
 from widget import *
 import matplotlib

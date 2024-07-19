@@ -16,13 +16,13 @@ Include a header with Mythic Systems branding in each Python file:
 # (c) 2024 Mythic Systems
 # All rights reserved.
 '''
-from main import *
+#from main import *
 import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend
 
-from gui import *
+#from gui import *
 from calculate import *
-from read import *
+from read_methods import *
 #from read import extract_ifc_data
 from widget import *
 import ifcopenshell

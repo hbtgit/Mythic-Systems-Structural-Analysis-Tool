@@ -18,13 +18,13 @@ Include a header with Mythic Systems branding in each Python file:
 # All rights reserved.
 '''
 import matplotlib
-from main import *
+#from main import *
 from calculate import *
 # from calculate import calculate_area_from_coords
 matplotlib.use('Agg')  # Use a non-interactive backend
 
 
-from read import *
+from read_methods import *
 from report import *
 from widget import *
 import ifcopenshell
