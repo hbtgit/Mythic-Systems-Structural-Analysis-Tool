@@ -41,7 +41,11 @@ import tkinter as tk
 from tkinter import simpledialog
 
 def on_drop(event):
-    
+    root = TkinterDnD.Tk()
+    roof_uplift_entry = Entry(root)
+    roof_downpressure_entry = Entry(root)
+    wind_force_entry = Entry(root)
+    wall_height_entry = Entry(root)
     from read_methods import parse_ifc_file,extract_element_counts,extract_section_types,extract_floor_data,extract_forces_moments
     from calculate import calculate_perimeter,calculate_roof_perimeter,calculate_area_from_coords,calculate_snow_load,calculate_ice_load,calculate_wind_loads,calculate_dead_load 
     ifc_file_path = event.data.strip('{}')  # Remove curly braces if present
