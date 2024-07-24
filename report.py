@@ -21,8 +21,8 @@ import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend
 
 #from gui import *
-from calculate import *
-from read_methods import *
+
+
 #from read import extract_ifc_data
 from widget import *
 import ifcopenshell
@@ -39,6 +39,8 @@ import tkinter as tk
 from tkinter import simpledialog
 
 def plot_coordinates(coordinates, areas, output_path, ifc_file_path):
+    from read_methods import extract_ifc_data
+    from calculate import calculate_perimeter,calculate_footing_perimeter,calculate_linear_load, calculate_wall_moments
     if not all(len(coord) == 3 for coord in coordinates):
         raise ValueError("Some coordinates do not have exactly three values.")
 

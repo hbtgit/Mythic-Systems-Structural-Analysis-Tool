@@ -18,10 +18,10 @@ Include a header with Mythic Systems branding in each Python file:
 import matplotlib
 matplotlib.use('Agg')  # Use a non-interactive backend
 
-from gui import *
+
 from calculate import *
 from read_methods import *
-from report import *
+
 from widget import *
 import ifcopenshell
 import re
@@ -37,6 +37,8 @@ import tkinter as tk
 from tkinter import simpledialog
 
 def main():
+    from gui import on_drop
+    
     root = TkinterDnD.Tk()
     root.title("IFC to PDF Converter")
     root.geometry("400x500")

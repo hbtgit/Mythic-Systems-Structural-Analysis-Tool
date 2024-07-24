@@ -19,7 +19,7 @@ Include a header with Mythic Systems branding in each Python file:
 '''
 import matplotlib
 #from main import *
-from calculate import *
+
 # from calculate import calculate_area_from_coords
 matplotlib.use('Agg')  # Use a non-interactive backend
 
@@ -41,6 +41,9 @@ import tkinter as tk
 from tkinter import simpledialog
 
 def on_drop(event):
+    
+    from read_methods import parse_ifc_file,extract_element_counts,extract_section_types,extract_floor_data,extract_forces_moments
+    from calculate import calculate_perimeter,calculate_roof_perimeter,calculate_area_from_coords,calculate_snow_load,calculate_ice_load,calculate_wind_loads,calculate_dead_load 
     ifc_file_path = event.data.strip('{}')  # Remove curly braces if present
     coordinates = parse_ifc_file(ifc_file_path)
     areas = calculate_area_from_coords(coordinates)
@@ -55,9 +58,9 @@ def on_drop(event):
     # Process live loads if needed (e.g., print them or integrate into further calculations)
     print("Live Loads: ", live_loads)
     plot_coordinates(coordinates, areas, output_path, ifc_file_path)
-    forces, moments = extract_forces_moments(ifc_file_path)
-    perimeter = calculate_perimeter(coordinates)
-    roof_perimeter = calculate_roof_perimeter(coordinates)
+    # forces, moments = extract_forces_moments(ifc_file_path)
+    # perimeter = calculate_perimeter(coordinates)
+    # roof_perimeter = calculate_roof_perimeter(coordinates)
     
     plot_coordinates(coordinates, areas, output_path, ifc_file_path)
     print(f"Output saved to: {output_path}")
