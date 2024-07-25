@@ -87,6 +87,7 @@ def main():
         "roof_downpressure_entry": roof_downpressure_entry,
         "wind_force_entry": wind_force_entry,
         "wall_height_entry": wall_height_entry,
+        "remove_zero_point_var" : remove_zero_point_var,
         "site_class_entry": seismic_widget.site_class_entry,
         "importance_factor_entry" : seismic_widget.importance_factor_entry,
         "spectral_response_acceleration_entry": seismic_widget.spectral_response_acceleration_entry,

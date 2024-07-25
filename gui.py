@@ -49,7 +49,10 @@ def on_drop(event, values):
     #         print(">>> 2. ", d, eval(f'event.{d}'))
     # print(dir(values['snow_load_entry']))
     for k, v in values.items():
-        print(k, v.get().strip() or "0")
+        try:
+            print(k, v.get().strip() or "0")
+        except:
+            pass
 
     # Entry widgets
     roof_uplift_entry = values["roof_uplift_entry"]
@@ -61,6 +64,7 @@ def on_drop(event, values):
     site_class_entry = values["site_class_entry"]
     importance_factor_entry = values["importance_factor_entry"]
     spectral_response_acceleration_entry = values["spectral_response_acceleration_entry"]
+    zero_check = values["remove_zero_point_var"]
 
     # Assume parse_ifc_file, extract methods, calculate methods are correctly implemented
     from read_methods import parse_ifc_file, extract_element_counts, extract_section_types, extract_floor_data, extract_forces_moments
@@ -69,7 +73,7 @@ def on_drop(event, values):
     from widget import live_load_widget
 
     ifc_file_path = event.data.strip('{}')  # Remove curly braces if present
-    coordinates = parse_ifc_file(ifc_file_path)
+    coordinates = parse_ifc_file(ifc_file_path, zero_val=zero_check)
     areas = calculate_area_from_coords(coordinates)
 
     output_path = os.path.splitext(ifc_file_path)[0] + "_coordinate_plots.pdf"
