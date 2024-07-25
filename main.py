@@ -37,9 +37,13 @@ import tkinter as tk
 from tkinter import simpledialog
 
 def main():
-    from gui import on_drop
     
+    from Seismic import SeismicInputWidget
+    from gui import on_drop
+
     root = TkinterDnD.Tk()
+    seismic_widget = SeismicInputWidget(master=root)
+    seismic_widget.pack()
     root.title("IFC to PDF Converter")
     root.geometry("400x500")
     global ice_load_entry, snow_load_entry, remove_zero_point_var, Imperial_var, roof_uplift_entry, roof_downpressure_entry, wind_force_entry, wall_height_entry
@@ -75,7 +79,20 @@ def main():
     wall_height_entry.pack(anchor='w')
     
     root.drop_target_register(DND_FILES)
-    root.dnd_bind('<<Drop>>', on_drop)
+    
+    values = {
+        "snow_load_entry": snow_load_entry,
+        "ice_load_entry": ice_load_entry,
+        "roof_uplift_entry": roof_uplift_entry,
+        "roof_downpressure_entry": roof_downpressure_entry,
+        "wind_force_entry": wind_force_entry,
+        "wall_height_entry": wall_height_entry,
+        "site_class_entry": seismic_widget.site_class_entry,
+        "importance_factor_entry" : seismic_widget.importance_factor_entry,
+        "spectral_response_acceleration_entry": seismic_widget.spectral_response_acceleration_entry,
+    }
+    on_drop_md = lambda event: on_drop(event, values)
+    root.dnd_bind('<<Drop>>', on_drop_md)
 
     root.mainloop()
 

@@ -39,20 +39,32 @@ import os
 from fpdf import FPDF
 import tkinter as tk
 from tkinter import simpledialog
-def on_drop(event):
-    root = TkinterDnD.Tk()
+
+def on_drop(event, values):
+    # print(event, type(event))
+    # for d in dir(event):
+    #     try:
+    #         print(">>> 1. ", d, eval(f'event.{d}()'))
+    #     except Exception as e:
+    #         print(">>> 2. ", d, eval(f'event.{d}'))
+    # print(dir(values['snow_load_entry']))
+    for k, v in values.items():
+        print(k, v.get().strip() or "0")
 
     # Entry widgets
-    roof_uplift_entry = Entry(root)
-    roof_downpressure_entry = Entry(root)
-    wind_force_entry = Entry(root)
-    wall_height_entry = Entry(root)
-    snow_load_entry = Entry(root)
-    ice_load_entry = Entry(root)
+    roof_uplift_entry = values["roof_uplift_entry"]
+    roof_downpressure_entry = values["roof_downpressure_entry"]
+    wind_force_entry = values["wind_force_entry"]
+    wall_height_entry = values["wall_height_entry"]
+    snow_load_entry = values["snow_load_entry"]
+    ice_load_entry = values["ice_load_entry"]
+    site_class_entry = values["site_class_entry"]
+    importance_factor_entry = values["importance_factor_entry"]
+    spectral_response_acceleration_entry = values["spectral_response_acceleration_entry"]
 
     # Assume parse_ifc_file, extract methods, calculate methods are correctly implemented
     from read_methods import parse_ifc_file, extract_element_counts, extract_section_types, extract_floor_data, extract_forces_moments
-    from calculate import calculate_perimeter, calculate_roof_perimeter, calculate_area_from_coords, calculate_snow_load, calculate_ice_load, calculate_wind_loads, calculate_dead_load, calculate_beam_column_weight
+    from calculate import calculate_perimeter, calculate_roof_perimeter, calculate_area_from_coords, calculate_snow_load, calculate_ice_load, calculate_wind_loads, calculate_dead_load, calculate_beam_column_weight, compute_seismic_load
     from report import create_Aux_pdf, plot_coordinates
     from widget import live_load_widget
 
