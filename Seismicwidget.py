@@ -2,34 +2,37 @@ import tkinter as tk
 from tkinter import BooleanVar, Label, Entry, Checkbutton
 from tkinterdnd2 import TkinterDnD, DND_FILES
 
+
+import tkinter as tk
+
+def calculate_seismic_load(site_class_entry, importance_factor_entry, spectral_response_acceleration_entry):
+    # Retrieve user input
+    site_class = site_class_entry.get()
+    importance_factor = float(importance_factor_entry.get())
+    spectral_response_acceleration = float(spectral_response_acceleration_entry.get())
+
+    # Calculate seismic load
+    seismic_load = compute_seismic_load(site_class, importance_factor, spectral_response_acceleration)
+    print(f"Seismic Load: {seismic_load} kN")
+
+def compute_seismic_load(site_class, importance_factor, spectral_response_acceleration):
+    # Define amplification factors for different site classes
+    amplification_factors = {
+        'A': 0.8,
+        'B': 1.0,
+        'C': 1.2,
+        'D': 1.4,
+        'E': 1.6
+    }
+
+    # Get the amplification factor for the given site class
+    amplification_factor = amplification_factors.get(site_class.upper(), 1.0)  # Default to 1.0 if site class is not found
+
+    # Calculate the seismic load
+    seismic_load = importance_factor * spectral_response_acceleration * amplification_factor
+    return seismic_load
+
 def create_seismic_input_widgets(master):
-    def calculate_seismic_load():
-        # Retrieve user input
-        site_class = site_class_entry.get()
-        importance_factor = float(importance_factor_entry.get())
-        spectral_response_acceleration = float(spectral_response_acceleration_entry.get())
-
-        # Calculate seismic load
-        seismic_load = compute_seismic_load(site_class, importance_factor, spectral_response_acceleration)
-        print(f"Seismic Load: {seismic_load} kN")
-
-    def compute_seismic_load(site_class, importance_factor, spectral_response_acceleration):
-        # Define amplification factors for different site classes
-        amplification_factors = {
-            'A': 0.8,
-            'B': 1.0,
-            'C': 1.2,
-            'D': 1.4,
-            'E': 1.6
-        }
-
-        # Get the amplification factor for the given site class
-        amplification_factor = amplification_factors.get(site_class.upper(), 1.0)  # Default to 1.0 if site class is not found
-
-        # Calculate the seismic load
-        seismic_load = importance_factor * spectral_response_acceleration * amplification_factor
-        return seismic_load
-
     # Create and place widgets
     site_class_label = tk.Label(master, text="Site Class")
     site_class_label.grid(row=0, column=0)
@@ -46,15 +49,21 @@ def create_seismic_input_widgets(master):
     spectral_response_acceleration_entry = tk.Entry(master)
     spectral_response_acceleration_entry.grid(row=2, column=1)
 
-    calculate_button = tk.Button(master, text="Calculate Seismic Load", command=calculate_seismic_load)
+    calculate_button = tk.Button(master, text="Calculate Seismic Load", 
+                                 command=lambda: calculate_seismic_load(site_class_entry, 
+                                                                        importance_factor_entry, 
+                                                                        spectral_response_acceleration_entry))
     calculate_button.grid(row=3, columnspan=2)
 
     return master
 
+# Example usage
+if __name__ == "__main__":
+    root = tk.Tk()
+    root.title("Seismic Load Calculator")
+    create_seismic_input_widgets(root)
+    root.mainloop()
 
-
-
-# import tkinter as tk
 
 # def create_seismic_input_widgets(master):
 #     def calculate_seismic_load():
@@ -103,9 +112,5 @@ def create_seismic_input_widgets(master):
 #     calculate_button = tk.Button(master, text="Calculate Seismic Load", command=calculate_seismic_load)
 #     calculate_button.grid(row=3, columnspan=2)
 
-# # Integrate the function into your main application
-# if __name__ == '__main__':
-#     root = tk.Tk()
-#     create_seismic_input_widgets(root)
-#     root.mainloop()
+#     return master
 
