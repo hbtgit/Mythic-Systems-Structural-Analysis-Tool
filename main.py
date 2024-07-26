@@ -100,10 +100,5 @@ def main():
 
 
 
-if __name__ == "__main__":
-    root = tk.Tk()
-    root.title("Seismic Load Calculator")
-    create_seismic_input_widgets(root)
-    root.mainloop()
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
