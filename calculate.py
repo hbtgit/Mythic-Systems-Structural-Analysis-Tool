@@ -289,22 +289,3 @@ def calculate_ice_load(roof_area, ice_load_per_unit_area):
     total_ice_load = roof_area * ice_load_per_unit_area
     return round(total_ice_load, 2)
 
-def compute_seismic_load(site_class, importance_factor, spectral_response_acceleration):
-    # Example seismic load calculation based on ASCE 7-16
-    # Note: This is a simplified example. Actual calculations will depend on the standard used.
-    
-    # Site class factors (example values)
-    site_class_factors = {
-        'A': 0.8,
-        'B': 1.0,
-        'C': 1.2,
-        'D': 1.4,
-        'E': 1.6,
-        'F': 1.8,
-    }
-    
-    site_class_factor = site_class_factors.get(site_class, 1.0)
-    
-    # Simplified seismic load formula
-    seismic_load = importance_factor * spectral_response_acceleration * site_class_factor * 100  # Example formula
-    return seismic_load

@@ -38,7 +38,7 @@ from tkinter import simpledialog
 
 def main():
     
-    from Seismic import SeismicInputWidget
+    from Seismicwidget import SeismicInputWidget
     from gui import on_drop
 
     root = TkinterDnD.Tk()
