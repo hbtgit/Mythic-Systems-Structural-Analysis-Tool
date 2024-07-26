@@ -71,7 +71,7 @@ def on_drop(event, values):
     from calculate import calculate_perimeter, calculate_roof_perimeter, calculate_area_from_coords, calculate_snow_load, calculate_ice_load, calculate_wind_loads, calculate_dead_load, calculate_beam_column_weight
     from report import create_Aux_pdf, plot_coordinates
     from widget import live_load_widget
-    from Seismicwidget import compute_seismic_load
+    from Seismicwidget import create_seismic_input_widgets
     
     
     ifc_file_path = event.data.strip('{}')  # Remove curly braces if present
@@ -106,7 +106,7 @@ def on_drop(event, values):
         roof_area = areas[0]  # Assuming the XY area is the roof area
         total_snow_load = calculate_snow_load(roof_area, snow_load_per_unit_area)
         ice_load_total = calculate_ice_load(roof_area, ice_load_per_unit_area)
-        seismic_load = compute_seismic_load(site_class_entry, importance_factor_entry, spectral_response_acceleration_entry)
+        seismic_load = create_seismic_input_widgets(site_class_entry, importance_factor_entry, spectral_response_acceleration_entry)
         # Extract element counts
         element_counts = extract_element_counts(ifc_file_path)
 
