@@ -123,7 +123,8 @@ def on_drop(event, values):
         create_Aux_pdf(
             element_counts, Aux_output_path, ifc_file_path, floor_count, forces, moments, perimeter,
             roof_uplift, roof_downpressure, wind_force, wall_height, roof_perimeter, areas,
-            wind_loads, dead_load, total_column_weight, total_beam_weight, total_snow_load, ice_load_total, live_loads
+            wind_loads, dead_load, total_column_weight, total_beam_weight, total_snow_load, ice_load_total, live_loads,
+            seismic_load
         )
 
         # Message about the number of stories
