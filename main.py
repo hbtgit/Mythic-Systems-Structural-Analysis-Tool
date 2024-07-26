@@ -38,11 +38,11 @@ from tkinter import simpledialog
 
 def main():
     
-    from Seismicwidget import SeismicInputWidget
+    from Seismicwidget import create_seismic_input_widgets
     from gui import on_drop
 
     root = TkinterDnD.Tk()
-    seismic_widget = SeismicInputWidget(master=root)
+    seismic_widget = create_seismic_input_widgets(master=root)
     seismic_widget.pack()
     root.title("IFC to PDF Converter")
     root.geometry("400x500")
