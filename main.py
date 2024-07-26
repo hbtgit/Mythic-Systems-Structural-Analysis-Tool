@@ -43,7 +43,7 @@ def main():
 
     root = TkinterDnD.Tk()
     seismic_widget = create_seismic_input_widgets(master=root)
-    seismic_widget.pack()
+    #seismic_widget.pack()
     root.title("IFC to PDF Converter")
     root.geometry("400x500")
     global ice_load_entry, snow_load_entry, remove_zero_point_var, Imperial_var, roof_uplift_entry, roof_downpressure_entry, wind_force_entry, wall_height_entry
