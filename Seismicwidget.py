@@ -7,7 +7,7 @@ import tkinter as tk
 
 def calculate_seismic_load(site_class_entry, importance_factor_entry, spectral_response_acceleration_entry):
     # Retrieve user input
-    site_class = site_class_entry.get()
+    site_class = float(site_class_entry.get())
     importance_factor = float(importance_factor_entry.get())
     spectral_response_acceleration = float(spectral_response_acceleration_entry.get())
 
