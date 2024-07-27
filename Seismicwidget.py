@@ -26,7 +26,7 @@ def compute_seismic_load(site_class, importance_factor, spectral_response_accele
     }
 
     # Get the amplification factor for the given site class
-    amplification_factor = amplification_factors.get(site_class.get().upper(), 1.0)  # Default to 1.0 if site class is not found
+    amplification_factor = amplification_factors.get(site_class.upper(), 1.0)  # Default to 1.0 if site class is not found
 
     # Calculate the seismic load
     seismic_load = importance_factor * spectral_response_acceleration * amplification_factor
