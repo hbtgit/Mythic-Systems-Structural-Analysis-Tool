@@ -7,9 +7,9 @@ import tkinter as tk
 
 def calculate_seismic_load(site_class_entry, importance_factor_entry, spectral_response_acceleration_entry):
     # Retrieve user input
-    site_class = float(site_class_entry.get())
-    importance_factor = float(importance_factor_entry.get())
-    spectral_response_acceleration = float(spectral_response_acceleration_entry.get())
+    site_class = float(site_class_entry.get().strip() or "0")  # Get value from Entry widget
+    importance_factor = float(importance_factor_entry.get().strip() or "0")
+    spectral_response_acceleration = float(spectral_response_acceleration_entry.get().strip() or "0")
 
     # Calculate seismic load
     seismic_load = compute_seismic_load(site_class, importance_factor, spectral_response_acceleration)
