@@ -106,7 +106,7 @@ def on_drop(event, values):
         roof_area = areas[0]  # Assuming the XY area is the roof area
         total_snow_load = calculate_snow_load(roof_area, snow_load_per_unit_area)
         ice_load_total = calculate_ice_load(roof_area, ice_load_per_unit_area)
-        seismic_load = compute_seismic_load (int(site_class_entry.get(),importance_factor_entry.get(),spectral_response_acceleration_entry.get()))
+        seismic_load = compute_seismic_load (int(site_class_entry.get()),int (importance_factor_entry.get()),int(spectral_response_acceleration_entry.get()))
         # Extract element counts
         element_counts = extract_element_counts(ifc_file_path)
 
