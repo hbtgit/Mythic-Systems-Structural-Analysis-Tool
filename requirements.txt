@@ -1,10 +1,8 @@
 ifcopenshell
-re
 seaborn
 matplotlib
 numpy
 scipy
-os
 fpdf
-tkinter
+customtkinter
 tkinterdnd2
