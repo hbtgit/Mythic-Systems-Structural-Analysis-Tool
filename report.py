@@ -123,7 +123,7 @@ def plot_coordinates(coordinates, areas, output_path, ifc_file_path):
     plt.savefig(output_path)
     # plt.show()
 
-def create_Aux_pdf(element_counts, output_path, ifc_path, floor_count, forces, moments, perimeter, roof_uplift, roof_downpressure, wind_force, wall_height, roof_perimeter, areas, wind_loads, dead_load, total_column_weight, total_beam_weight, total_snow_load, total_ice_load, live_loads):
+def create_Aux_pdf(element_counts, output_path, ifc_path, floor_count, forces, moments, perimeter, roof_uplift, roof_downpressure, wind_force, wall_height, roof_perimeter, areas, wind_loads, dead_load, total_column_weight, total_beam_weight, total_snow_load, total_ice_load, live_loads, seismic_load):
     from calculate import calculate_linear_load, calculate_wall_moments
     pdf = FPDF()
     multi_story_msg = "The building is a single story."
@@ -149,6 +149,7 @@ def create_Aux_pdf(element_counts, output_path, ifc_path, floor_count, forces, m
 
     linear_load = calculate_linear_load(perimeter, roof_uplift, roof_downpressure)
     wall_moment = calculate_wall_moments(wind_force, wall_height)
+    
     wind_pressure = wind_loads['Wind Pressure']
 
     pdf.cell(200, 10, txt=f'Estimated Linear Load on Perimeter: {linear_load} lbs/ft', ln=True)
